@@ -14,14 +14,14 @@ objeto_auto3 = Auto("FERRARI", "HUB85H")
 objeto_auto4 = Auto("LAMBO", "HUB86H")
 objeto_auto5 = Auto("CADILA", "HUB88H")
 
+mis_autos = [objeto_auto1, objeto_auto2, objeto_auto3, objeto_auto4, objeto_auto5]
 
-archivo_auto = open("autos.txt", "wb")
-pickle.dump(objeto_auto1, archivo_auto)
-pickle.dump(objeto_auto2, archivo_auto)
-pickle.dump(objeto_auto3, archivo_auto)
-pickle.dump(objeto_auto4, archivo_auto)
-pickle.dump(objeto_auto5, archivo_auto)
-archivo_auto.close()
+
+
+for miauto in mis_autos:
+    archivo_auto = open("autos.txt", "wb")
+    pickle.dump(mis_autos, archivo_auto)
+    archivo_auto.close()
 
 archivo_auto = open("autos.txt", "rb")
 autos = pickle.load(archivo_auto)
