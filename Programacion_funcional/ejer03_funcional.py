@@ -47,15 +47,20 @@ def cargar():
         return pickle.load(archivo_auto)
 
 mis_autos = [
-    {"modelo": "Mazda", "placa": "HUB83H"},
-    {"modelo": "TOYOTA", "placa": "HUB83M"},
-    {"modelo": "FERRARI", "placa": "HUB83K"},
-    {"modelo": "LAMBO", "placa": "HUB83S"},
-    {"modelo": "CADILA", "placa": "HUB83P"}
+    {"modelo": "Mazda", "marca": "HUB83H"},
+    {"modelo": "TOYOTA", "marca": "HUB83M"},
+    {"modelo": "FERRARI", "marca": "HUB83K"},
+    {"modelo": "LAMBO", "marca": "HUB83S"},
+    {"modelo": "CADILA", "marca": "HUB83P"}
 ]
 
-
+# Guardar y cargar
 convertir(mis_autos)
 autos_cargados = cargar()
-list(map(lambda x: x["placa"].upper(), autos_cargados))
 
+# Transformar con map: modelo en mayúsculas + marca
+autos_info = list(map(lambda x: f"Modelo: {x['modelo'].upper()}, Marca: {x['marca']}", autos_cargados))
+
+# Imprimir resultados
+for auto in autos_info:
+    print(auto)
